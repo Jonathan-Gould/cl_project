@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cl"
+version = "0.1.0"
+description = "The cl library"
+requires-python = ">=3.12"
+readme = "README.md"
+#license = { text = "MIT" } #TODO: add license
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
