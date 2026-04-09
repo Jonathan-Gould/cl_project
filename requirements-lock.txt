@@ -3,7 +3,7 @@ asttokens==3.0.1
 blosc2==4.1.2
 certifi==2026.2.25
 charset-normalizer==3.4.7
-# Editable Git install with no remote (cl==0.1.0)
+# Editable Git install with no remote (cl_project==0.1.0)
 -e /home/jgould/Documents/cl
 cl-sdk==0.29.0
 comm==0.2.3
