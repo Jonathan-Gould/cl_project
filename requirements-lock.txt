@@ -5,9 +5,9 @@ blosc2==4.1.2
 certifi==2026.2.25
 charset-normalizer==3.4.7
 cl-sdk==0.29.0
-# Editable Git install with no remote (cl_project==0.1.0)
--e /home/jgould/Documents/cl_project
 comm==0.2.3
+# Editable Git install with no remote (common_cl_code==0.1.0)
+-e /home/jgould/Documents/cl_project
 contourpy==1.3.3
 cycler==0.12.1
 debugpy==1.8.20

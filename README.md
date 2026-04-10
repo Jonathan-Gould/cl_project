@@ -1,7 +1,7 @@
 ## Installation
 
 ```bash
-# From the project root – installs cl_project plus dev tools (pytest)
+# From the project root – installs common_cl_code plus dev tools (pytest)
 pip install -e ".[dev]"
 ```
 

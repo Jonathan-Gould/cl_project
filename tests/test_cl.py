@@ -1,5 +1,5 @@
-import cl_project
+import common_cl_code
 
 
 def test_version():
-    assert cl_project.__version__ == "0.1.0"
+    assert common_cl_code.__version__ == "0.1.0"

@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "cl_project"
+name = "common_cl_code"
 version = "0.1.0"
 description = ""
 requires-python = ">=3.12"
@@ -24,7 +24,7 @@ dependencies = [
 dev = ["pytest", "nbstripout", "pyqt6>=6.11"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/cl_project"]
+packages = ["src/common_cl_code"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
