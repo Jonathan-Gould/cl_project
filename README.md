@@ -1,8 +1,8 @@
 ## Installation
 
 ```bash
-python -m venv --system-site-packages  ~/venv
-source ~/venv/bin/activate
+python -m venv --system-site-packages  ~/jgould/venv
+source ~/jgould/venv/bin/activate
 ```
 
 ```bash
