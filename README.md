@@ -1,13 +1,25 @@
 ## Installation
 
 ```bash
-python -m venv --system-site-packages  ~/jgould/venv
-source ~/jgould/venv/bin/activate
+cd ~/jgould/
+git clone https://github.com/draeloslab/cl_project
+cd cl_project
+python -m venv --system-site-packages ~/jgould/cl_project/venv
+source ~/jgould/cl_project/venv/bin/activate
+
+pip install -e ".[dev]"
+python -m ipykernel install --user --name=venv
 ```
 
+## Uninstall
+
 ```bash
-pip install -e ".[dev]"
+cd ~/jgould/
+rm -rf cl_project
+jupyter kernelspec list
+jupyter kernelspec uninstall unwanted-kernel
 ```
+
 
 ## Dependency management
 
@@ -25,3 +37,4 @@ To update the lock file after verifying a new working environment:
 ```bash
 pip freeze > requirements-lock.txt
 ```
+
