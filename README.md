@@ -1,14 +1,15 @@
 ## Installation
 
 ```bash
+deactivate
 cd ~/jgould/
-git clone https://github.com/draeloslab/cl_project
+git clone git@github.com:draeloslab/cl_project.git
 cd cl_project
 python -m venv --system-site-packages ~/jgould/cl_project/venv
 source ~/jgould/cl_project/venv/bin/activate
 
 pip install -e ".[dev]"
-python -m ipykernel install --user --name=venv
+python -m ipykernel install --user --name=cl_project_venv
 ```
 
 ## Uninstall
