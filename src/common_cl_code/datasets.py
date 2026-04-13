@@ -13,7 +13,7 @@ import pathlib
 match socket.gethostname().lower():
     case 'tycho':
         DATA_BASE_PATH = pathlib.Path("/mnt/data/")
-    case '':
+    case 'CL1-2544-135':
         DATA_BASE_PATH = pathlib.Path("/data/tmp")
     case _:
         ValueError()
