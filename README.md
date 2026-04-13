@@ -1,7 +1,7 @@
 ## Installation
 
 ```bash
-deactivate
+deactivate # if a venv is already active
 cd ~/jgould/
 git clone git@github.com:draeloslab/cl_project.git
 cd cl_project
