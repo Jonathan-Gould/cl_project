@@ -11,14 +11,13 @@ import pathlib
 import numpy as np
 import warnings
 
-
-match socket.gethostname():
-    case 'tycho':
-        DATA_BASE_PATH = pathlib.Path("/mnt/data/")
-    case 'CL1-2544-135':
-        DATA_BASE_PATH = pathlib.Path("/home/labuser/storage/")
-    case _:
-        raise ValueError(f'Hostname {socket.gethostname()} not recognized.')
+hostname = socket.gethostname()
+if hostname == 'tycho':
+    DATA_BASE_PATH = pathlib.Path("/mnt/data/")
+elif 'CL1' in hostname:
+    DATA_BASE_PATH = pathlib.Path("/home/labuser/storage/")
+else:
+    raise ValueError(f'Hostname {socket.gethostname()} not recognized.')
 
 
 
