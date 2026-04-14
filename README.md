@@ -10,6 +10,7 @@ source ~/jgould/cl_project/venv/bin/activate
 
 pip install -e ".[dev]"
 python -m ipykernel install --user --name=cl_project_venv
+nbstripout --install
 ```
 
 ## Uninstall
