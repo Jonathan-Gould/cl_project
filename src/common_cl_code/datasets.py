@@ -11,13 +11,7 @@ import pathlib
 import numpy as np
 import warnings
 
-hostname = socket.gethostname()
-if hostname == 'tycho':
-    DATA_BASE_PATH = pathlib.Path("/mnt/data/")
-elif 'CL1' in hostname:
-    DATA_BASE_PATH = pathlib.Path("/home/labuser/storage/")
-else:
-    raise ValueError(f'Hostname {socket.gethostname()} not recognized.')
+from . import datasets_base_path
 
 
 
@@ -194,7 +188,7 @@ class DandiDataset(ABC):
         fs = fsspec.filesystem("http")
         fs = CachingFileSystem(
             fs=fs,
-            cache_storage=[DATA_BASE_PATH / "nwb_cache"],
+            cache_storage=[datasets_base_path / "nwb_cache"],
         )
 
         with fs.open(s3_url, "rb") as f:
@@ -206,7 +200,7 @@ class Atanas24Dataset(DandiDataset):
     doi = "https://doi.org/10.48324/dandi.000776/0.241009.1509"
     dandiset_id = "000776"
     version_id = "0.241009.1509"
-    dataset_base_path = DATA_BASE_PATH / 'atanas24'
+    dataset_base_path = datasets_base_path / 'atanas24'
 
     sub_datasets = [
         "sub-2022-06-14-01-SWF702/sub-2022-06-14-01-SWF702_ses-20220614_behavior+image+ophys.nwb"
