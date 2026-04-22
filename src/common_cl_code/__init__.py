@@ -27,3 +27,6 @@ else:
 
 
 baseline_fr_file = datasets_base_path / 'baseline_fr.npz'
+
+grid_size = (8,8)
+no_stim_channels = {0, 56, 63, 7}
