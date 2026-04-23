@@ -1,4 +1,6 @@
 {
     "name": "Default",
-    "timeout_s": 3600
+    "n_trials": 1000,
+    "inter_trial_period_s": 60,
+    "timeout_s": 43200
 }

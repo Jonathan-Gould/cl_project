@@ -1,4 +1,4 @@
-from cl import ChannelSet, StimDesign, BurstDesign
+from cl import ChannelSet, StimDesign, BurstDesign, StimPlan
 import numpy as np
 from common_cl_code.datasets import ArrayWithTime
 from common_cl_code import grid_size, no_stim_channels
@@ -31,7 +31,7 @@ def make_spatial_footprint_radial(sigma =.4, r=.7, theta=0, degrees=True):
     return make_spatial_footprint(sigma=sigma, center=np.array([np.cos(theta), np.sin(theta)]) * r)
 
 
-def make_sequence(seconds_per_rotation = 5, rotations=1., fps = 10, shuffle_axes = (), rng=None):
+def make_sequence(rng, seconds_per_rotation = 5, rotations=1., fps = 10, shuffle_axes = ()):
     seconds = seconds_per_rotation * rotations
 
     times = np.linspace(0, seconds, np.round(seconds*fps).astype(int)+1)[:-1]
@@ -56,7 +56,7 @@ def make_sequence(seconds_per_rotation = 5, rotations=1., fps = 10, shuffle_axes
 
     return ArrayWithTime(spatial_footprints, times)
 
-def register_stim_plan(stim_plan, spatial_footprints, max_amplitude=2.5, phase_width_us=160, burst_hz=100, frame_time_s=0.04):
+def register_stim_plan(stim_plan: StimPlan, spatial_footprints, max_amplitude=2.5, phase_width_us=160, burst_hz=100, frame_time_s=0.04):
     unique_intensities = np.unique(spatial_footprints, return_inverse=True, sorted=True)[0]
 
     for spatial_footprint in spatial_footprints:
@@ -67,6 +67,6 @@ def register_stim_plan(stim_plan, spatial_footprints, max_amplitude=2.5, phase_w
                 stim_plan.stim(
                     ChannelSet([int(x) for x in channels if x not in no_stim_channels]),
                     StimDesign(phase_width_us, -max_amplitude * scaled_intensity, phase_width_us, max_amplitude * scaled_intensity),
-                    BurstDesign(int(round(frame_time_s*burst_hz)), burst_hz)
+                    BurstDesign(int(round(frame_time_s*burst_hz)), float(burst_hz))
                 )
         stim_plan.sync(ChannelSet(list(set(range(64)) - no_stim_channels)))
