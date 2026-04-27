@@ -5,8 +5,6 @@ try:
 except PackageNotFoundError:
     __version__ = "unknown"
 
-
-
 import socket
 import pathlib
 import cl
