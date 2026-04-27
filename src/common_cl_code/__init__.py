@@ -26,7 +26,7 @@ else:
     raise ValueError(f'Hostname {socket.gethostname()} not recognized.')
 
 
-baseline_fr_file = datasets_base_path / 'baseline_fr.npz'
+frames_per_second = 25_000
 
 grid_size = (8,8)
 no_stim_channels = {0, 56, 63, 7}
